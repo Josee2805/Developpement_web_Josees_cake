@@ -1,0 +1,614 @@
+/* ========================================
+   FICHIER CSS PRINCIPAL
+   Josée's Cake - Pâtisserie artisanale
+   
+   ======================================== */
+
+   
+.logo_img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    margin-top: -10px;
+}
+
+/* RESET CSS : Réinitialise les styles par défaut du navigateur */
+* {
+    margin: 0;              /* Supprime toutes les marges */
+    padding: 0;             /* Supprime tous les paddings */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur */
+}
+
+/* STYLES GLOBAUX DU BODY */
+body {
+    font-family: "Times New Roman", Times, serif; /* Police simple et lisible */
+    line-height: 1.6;                           /* Espacement entre les lignes */
+    color: #333;                                /* Couleur du texte */
+    background-color: #fffef7;                  /* Fond crème clair */
+}
+
+/* CONTAINER : Centre le contenu et limite la largeur */
+.container {
+    max-width: 1200px;    /* Largeur maximale sur grands écrans */
+    margin: 0 auto;       /* Centre horizontalement */
+    padding: 0 20px;      /* Espacement sur les côtés */
+}
+
+/* IMAGES : Responsive par défaut */
+img {
+    max-width: 100%;      /* Ne dépasse jamais son conteneur */
+    height: auto;         /* Conserve les proportions */
+    display: block;       /* Supprime l'espace sous l'image */
+}
+
+/* ========================================
+   EN-TÊTE (HEADER)
+   ======================================== */
+header {
+    background-color: #f3e309;           /* Jaune principal */
+    padding: 1.5rem 0;                   /* Espacement vertical */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Container du header en flexbox */
+header .container {
+    display: flex;              /* Active flexbox */
+    justify-content: space-between; /* Espace entre logo et menu */
+    align-items: center;        /* Centre verticalement */
+}
+
+/* LOGO */
+.logo h1 {
+    font-size: 2rem;      /* Taille du titre */
+    color: #fff;          /* Blanc pour contraste */
+    font-weight: bold;    /* Texte en gras */
+}
+
+/* Slogan sous le logo */
+.tagline {
+    font-size: 0.85rem;   /* Plus petit que le titre */
+    color: #fff;          /* Blanc */
+    font-style: italic;   /* Style italique */
+}
+
+/* MENU DE NAVIGATION */
+nav .menu {
+    list-style: none;     /* Supprime les puces */
+    display: flex;        /* Menu horizontal */
+    gap: 2rem;            /* Espace entre les liens */
+}
+
+/* Liens du menu */
+nav .menu li a {
+    color: #fff;                 /* Texte blanc */
+    text-decoration: none;       /* Supprime le soulignement */
+    font-weight: 600;            /* Semi-gras */
+    padding: 0.5rem 1rem;        /* Espacement interne */
+    border-radius: 5px;          /* Coins arrondis */
+    transition: background-color 0.3s; /* Animation douce */
+}
+
+/* Effet au survol et page active */
+nav .menu li a:hover,
+nav .menu li a.active {
+    background-color: rgba(255, 255, 255, 0.2); /* Fond blanc transparent */
+}
+
+/* ========================================
+   SECTION HERO (Bannière d'accueil)
+   ======================================== */
+.hero {
+    /* Dégradé de jaune clair à orange */
+    height: 200px;        /* Hauteur pleine écran */
+    width: 100%;         /* Prend toute la largeur */
+    background-color: #e8eb46;
+    background-image: linear-gradient(135deg, #f3e309 0%, #f3e309 100%);
+    color: #fff;           /* Texte blanc */
+    padding: 0rem 0;       /* Espacement vertical généreux */
+    text-align: center;    /* Contenu centré */
+    border-radius: 20px;  /* Coins très arrondis */
+}
+
+/* Titre principal du hero */
+.hero h2 {
+    font-size: 2.5rem;     /* Grande taille */
+    margin-bottom: 1rem;   /* Espace sous le titre */
+}
+
+/* Paragraphe du hero */
+.hero p {
+    font-size: 1.2rem;     /* Taille moyenne */
+    margin-bottom: 2rem;   /* Espace avant le bouton */
+}
+
+/* BOUTON PRINCIPAL */
+.btn-primary {
+    display: inline-block;      /* Permet padding et margin */
+    background-color: #fff;     /* Fond blanc */
+    color: #f4c430;             /* Texte jaune */
+    padding: 1rem 2.5rem;       /* Espacement interne */
+    text-decoration: none;      /* Pas de soulignement */
+    border-radius: 50px;        /* Coins très arrondis */
+    font-weight: bold;          /* Texte en gras */
+    transition: transform 0.3s; /* Animation au survol */
+}
+
+/* Effet zoom au survol du bouton */
+.btn-primary:hover {
+    transform: scale(1.05);     /* Agrandissement de 5% */
+}
+
+/* ========================================
+   SECTIONS GÉNÉRALES
+   ======================================== */
+section {
+    padding: 4rem 0;            /* Espacement vertical */
+}
+
+/* Titres des sections */
+section h2 {
+    text-align: center;         /* Centré */
+    font-size: 2rem;            /* Taille importante */
+    margin-bottom: 3rem;        /* Espace sous le titre */
+    color: #3b271e;             /* Jaune pour cohérence */
+}
+
+/* ========================================
+   GRILLES DE CARTES
+   ======================================== */
+.grid {
+    display: grid;              /* Active CSS Grid */
+    /* Colonnes auto-adaptatives, min 300px, max égales */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;                  /* Espace entre les cartes */
+}
+
+/* CARTES (produits, features, valeurs) */
+.card,
+.feature,
+.value-card {
+    background: #fff;                        /* Fond blanc */
+    padding: 2rem;                           /* Espacement interne */
+    border-radius: 10px;                     /* Coins arrondis */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    text-align: center;                      /* Contenu centré */
+    transition: transform 0.3s;              /* Animation au survol */
+}
+
+/* Effet au survol des cartes */
+.card:hover,
+.feature:hover,
+.value-card:hover {
+    transform: translateY(-5px);             /* Monte de 5px */
+}
+
+/* Images dans les cartes */
+.card img,
+.feature img,
+.value-card img {
+    width: 100%;             /* Prend toute la largeur */
+    height: 200px;           /* Hauteur fixe */
+    object-fit: cover;       /* Remplit sans déformation */
+    border-radius: 8px;      /* Coins légèrement arrondis */
+    margin-bottom: 1rem;     /* Espace sous l'image */
+}
+
+/* Titres des cartes */
+.card h3,
+.feature h3,
+.value-card h3 {
+    color: #f4c430;          /* Jaune */
+    margin-bottom: 1rem;     /* Espace sous le titre */
+}
+
+
+
+
+
+/* =======================================
+   CONTENEUR PRINCIPAL DU SLIDER
+======================================= */
+
+.slider {
+    /* Cache tout ce qui dépasse horizontalement */
+    overflow: hidden;
+
+    /* Nécessaire pour positionner correctement le contenu */
+    position: relative;
+
+    /* Le slider prend toute la largeur disponible */
+    width: 100%;
+}
+
+/* =======================================
+   PISTE QUI SE DÉPLACE (ANIMATION)
+======================================= */
+
+.slider-track {
+    /* Aligne toutes les cartes sur une seule ligne */
+    display: flex;
+
+    /* Espace entre les cartes */
+    gap: 25px;
+
+    /* La largeur s'adapte au nombre de cartes */
+    width: max-content;
+
+    /* Animation automatique :
+       - scroll : nom de l'animation
+       - 25s : durée complète
+       - linear : vitesse constante
+       - infinite : boucle infinie */
+    animation: scroll 25s linear infinite;
+}
+
+/* =======================================
+   ANIMATION DE DÉFILEMENT
+======================================= */
+
+@keyframes scroll {
+    /* Position de départ */
+    0% {
+        transform: translateX(0);
+    }
+
+    /* 
+        Position finale :
+        - On déplace la piste de -50%
+        - Correspond exactement à la largeur
+          de la première série de cartes
+    */
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* =======================================
+   STYLE DES CARTES
+======================================= */
+
+.slider-track .card {
+    /* Largeur minimale d'une carte */
+    min-width: 280px;
+
+    /* Fond blanc pour contraste */
+    background: #ffffff;
+
+    /* Coins arrondis pour un look moderne */
+    border-radius: 16px;
+
+    /* Espace intérieur */
+    padding: 15px;
+
+    /* Ombre douce pour effet "carte" */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+
+    /* Animation fluide au survol */
+    transition: transform 0.3s ease;
+}
+
+/* Effet visuel quand on survole une carte */
+.slider-track .card:hover {
+    /* Légère élévation vers le haut */
+    transform: translateY(-10px);
+}
+
+/* =======================================
+   IMAGES DES CARTES
+======================================= */
+
+.slider-track img {
+    /* L'image occupe toute la largeur de la carte */
+    width: 100%;
+
+    /* Hauteur fixe pour une grille homogène */
+    height: 200px;
+
+    /* Coupe l'image sans la déformer */
+    object-fit: cover;
+
+    /* Arrondit les coins de l'image */
+    border-radius: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================
+   PAGE PRÉSENTATION 
+   ======================================== */
+.about-content,
+.expertise-content {
+    display: grid;                  /* Active Grid */
+    grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+    gap: 3rem;                      /* Espace entre colonnes */
+    align-items: center;            /* Centre verticalement */
+}
+
+/* Images dans about/expertise */
+.about-content img,
+.expertise-content img {
+    width: 100%;                    /* Prend toute la largeur */
+    border-radius: 10px;            /* Coins arrondis */
+}
+
+/* Paragraphes */
+.about-text p,
+.expertise-text p {
+    margin-bottom: 1rem;            /* Espace entre paragraphes */
+}
+
+/* Listes dans expertise */
+.expertise-text ul {
+    margin-top: 1rem;               /* Espace au-dessus */
+    padding-left: 2rem;             /* Indentation */
+}
+
+.expertise-text ul li {
+    margin-bottom: 0.5rem;          /* Espace entre items */
+}
+
+.photo_chef {
+    width: 50%;
+    height: 500px;
+    
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   SECTION VALEURS
+   ======================================== */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* ========================================
+   TÉMOIGNAGES
+   ======================================== */
+.testimonials {
+    background-color: #fff9e6;      /* Fond jaune très clair */
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Carte de témoignage */
+.testimonial {
+    background: #fff;                /* Fond blanc */
+    padding: 2rem;                   /* Espacement interne */
+    border-radius: 10px;             /* Coins arrondis */
+    border-left: 4px solid #f4c430;  /* Bordure jaune à gauche */
+}
+
+/* Nom de l'auteur */
+.testimonial .author {
+    margin-top: 1rem;                /* Espace au-dessus */
+    font-weight: bold;               /* Texte en gras */
+    color: #f4c430;                  /* Couleur jaune */
+}
+
+/* ========================================
+   FORMULAIRE DE CONTACT
+   ======================================== */
+.contact-section {
+    background-color: #fff;          /* Fond blanc */
+}
+
+/* Texte d'introduction */
+.intro-text {
+    text-align: center;              /* Centré */
+    color: #666;                     /* Gris moyen */
+    margin-bottom: 2rem;             /* Espace en dessous */
+}
+
+/* Container du formulaire */
+.contact-form {
+    max-width: 700px;                /* Largeur max */
+    margin: 0 auto;                  /* Centre horizontalement */
+    background: #fffef7;             /* Fond crème */
+    padding: 2.5rem;                 /* Espacement interne */
+    border-radius: 10px;             /* Coins arrondis */
+    border: 2px solid #cfa525;       /* Bordure jaune */
+}
+
+/* Groupe de champ de formulaire */
+.form-group {
+    margin-bottom: 1.5rem;           /* Espace entre champs */
+}
+
+/* Labels des champs */
+.form-group label {
+    display: block;                  /* Prend toute la largeur */
+    margin-bottom: 0.5rem;           /* Espace sous le label */
+    font-weight: 600;                /* Semi-gras */
+    color: #333;                     /* Noir */
+}
+
+/* Astérisque rouge pour champs obligatoires */
+.required {
+    color: #e74c3c;                  /* Rouge */
+}
+
+/* Tous les inputs et selects */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;                     /* Prend toute la largeur */
+    padding: 0.75rem;                /* Espacement interne */
+    border: 2px solid #ddd;          /* Bordure grise */
+    border-radius: 5px;              /* Coins arrondis */
+    font-size: 1rem;                 /* Taille du texte */
+}
+
+/* Bordure jaune au focus */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;                   /* Supprime outline par défaut */
+    border-color: #f4c430;           /* Bordure jaune */
+}
+
+/* Textarea */
+.form-group textarea {
+    resize: vertical;                /* Redimensionnable verticalement */
+}
+
+/* Container des boutons radio */
+.radio-group {
+    display: flex;                   /* Flexbox */
+    gap: 2rem;                       /* Espace entre radios */
+}
+
+/* Labels des radios */
+.radio-label {
+    display: flex;                   /* Flexbox */
+    align-items: center;             /* Centre verticalement */
+    gap: 0.5rem;                     /* Espace entre input et texte */
+    cursor: pointer;                 /* Curseur pointer */
+}
+
+/* Messages d'erreur */
+.error-message {
+    display: block;                  /* Prend toute la largeur */
+    color: #e74c3c;                  /* Rouge */
+    font-size: 0.85rem;              /* Plus petit */
+    margin-top: 0.5rem;              /* Espace au-dessus */
+    min-height: 20px;                /* Hauteur min pour éviter saut */
+}
+
+/* Bouton de soumission */
+.btn-submit {
+    width: 100%;                     /* Prend toute la largeur */
+    padding: 1rem;                   /* Espacement interne */
+    background-color: #f4c430;       /* Jaune */
+    color: #fff;                     /* Texte blanc */
+    border: none;                    /* Pas de bordure */
+    border-radius: 5px;              /* Coins arrondis */
+    font-size: 1.1rem;               /* Taille du texte */
+    font-weight: bold;               /* Gras */
+    cursor: pointer;                 /* Curseur pointer */
+    transition: background-color 0.3s; /* Animation */
+}
+
+/* Couleur plus foncée au survol */
+.btn-submit:hover {
+    background-color: #ffb300;       /* Orange */
+}
+
+/* Message de succès */
+.success-message {
+    background-color: #d4edda;       /* Vert clair */
+    color: #155724;                  /* Vert foncé */
+    padding: 1.5rem;                 /* Espacement interne */
+    border-radius: 5px;              /* Coins arrondis */
+    border: 1px solid #c3e6cb;       /* Bordure verte */
+    margin-top: 1rem;                /* Espace au-dessus */
+}
+
+/* ========================================
+   PIED DE PAGE (FOOTER)
+   ======================================== */
+footer {
+    background-color: #333;          /* Fond gris foncé */
+    color: #fff;                     /* Texte blanc */
+    padding: 3rem 0 1rem;            /* Espacement vertical */
+    margin-top: 4rem;                /* Espace au-dessus */
+}
+
+/* Contenu du footer en grille */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Titres du footer */
+.footer-section h4 {
+    margin-bottom: 1rem;             /* Espace en dessous */
+    color: #f4c430;                  /* Jaune */
+}
+
+/* Paragraphes du footer */
+.footer-section p {
+    margin-bottom: 0.5rem;           /* Petit espace */
+}
+
+/* Ligne de copyright */
+.footer-bottom {
+    text-align: center;              /* Centré */
+    padding-top: 2rem;               /* Espace au-dessus */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Bordure subtile */
+}
+
+/* ========================================
+   RESPONSIVE DESIGN (MOBILE)
+   Media queries pour écrans < 768px
+   ======================================== */
+@media (max-width: 768px) {
+    /* Header en colonne sur mobile */
+    header .container {
+        flex-direction: column;      /* Empile verticalement */
+        gap: 1rem;                   /* Espace entre éléments */
+    }
+
+    /* Menu en colonne */
+    nav .menu {
+        flex-direction: column;      /* Empile verticalement */
+        gap: 0.5rem;                 /* Réduit l'espace */
+        text-align: center;          /* Centre le texte */
+    }
+
+    /* Hero plus petit sur mobile */
+    .hero h2 {
+        font-size: 1.8rem;           /* Réduit la taille */
+    }
+
+    /* Grilles en 1 colonne */
+    .grid {
+        grid-template-columns: 1fr;  /* 1 seule colonne */
+    }
+
+    /* About/Expertise en 1 colonne */
+    .about-content,
+    .expertise-content {
+        grid-template-columns: 1fr;  /* 1 seule colonne */
+    }
+
+    /* Formulaire plus compact */
+    .contact-form {
+        padding: 1.5rem;             /* Réduit padding */
+    }
+
+    /* Radios en colonne sur mobile */
+    .radio-group {
+        flex-direction: column;      /* Empile verticalement */
+        gap: 1rem;                   /* Espace entre options */
+    }
+
+    /* Footer en 1 colonne */
+    .footer-content {
+        grid-template-columns: 1fr;  /* 1 seule colonne */
+        text-align: center;          /* Centre le texte */
+    }
+}
