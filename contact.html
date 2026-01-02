@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Encodage des caractères -->
+    <meta charset="UTF-8">
+    <!-- Configuration responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titre de la page contact -->
+    <title>Contact - Josée's Cake</title>
+    <!-- Lien vers le CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- EN-TÊTE : Navigation principale du site -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img class="logo_img" src="img/logo.jpeg" alt="logo_josee">
+                <h1>Josée's Cake</h1>
+                <p class="tagline">L'art de la pâtisserie</p>
+            </div>
+            
+            <!-- Menu avec Contact comme page active -->
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="presentation.html">Présentation</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECTION FORMULAIRE : Page principale avec formulaire de contact -->
+    <section class="contact-section">
+        <div class="container">
+            <!-- Titre de la page -->
+            <h2>Contactez-Nous</h2>
+            <!-- Texte d'introduction -->
+            <p class="intro-text">Remplissez le formulaire ci-dessous pour nous contacter</p>
+
+            <!-- FORMULAIRE DE CONTACT avec ID pour JavaScript -->
+            <form id="contactForm" class="contact-form">
+                
+                <!-- CHAMP 1 : NOM COMPLET (OBLIGATOIRE) -->
+                <div class="form-group">
+                    <!-- Label avec astérisque rouge pour indiquer champ obligatoire -->
+                    <label for="nom">Nom complet <span class="required">*</span></label>
+                    <!-- Input texte avec attribut required HTML5 -->
+                    <input type="text" id="nom" name="nom" required>
+                    <!-- Span vide pour afficher les messages d'erreur via JavaScript -->
+                    <span class="error-message" id="error-nom"></span>
+                </div>
+
+                <!-- CHAMP 2 : EMAIL (OBLIGATOIRE) -->
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <!-- Type email pour validation HTML5 basique -->
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message" id="error-email"></span>
+                </div>
+
+                <!-- CHAMP 3 : TÉLÉPHONE (OBLIGATOIRE) -->
+                <div class="form-group">
+                    <label for="telephone">Téléphone <span class="required">*</span></label>
+                    <!-- Type tel pour affichage clavier numérique sur mobile -->
+                    <input type="tel" id="telephone" name="telephone" required>
+                    <span class="error-message" id="error-telephone"></span>
+                </div>
+
+                <!-- CHAMP 4 : SUJET DE CONTACT (SELECT - OBLIGATOIRE) -->
+                <div class="form-group">
+                    <label for="sujet">Sujet de contact <span class="required">*</span></label>
+                    <!-- Menu déroulant qui déclenchera l'affichage des champs conditionnels -->
+                    <select id="sujet" name="sujet" required>
+                        <!-- Option vide par défaut -->
+                        <option value="">-- Choisissez un sujet --</option>
+                        <!-- Option 1 : Affichera le champ "Domaine d'intérêt" -->
+                        <option value="information">Demande d'information</option>
+                        <!-- Option 2 : Affichera les champs "Numéro de ticket" et "Urgence" -->
+                        <option value="support">Support technique</option>
+                        <!-- Option 3 : Affichera le champ "Date de l'incident" -->
+                        <option value="reclamation">Réclamation</option>
+                        <!-- Option 4 : Aucun champ supplémentaire -->
+                        <option value="autre">Autre</option>
+                    </select>
+                    <span class="error-message" id="error-sujet"></span>
+                </div>
+
+                <!-- CHAMPS CONDITIONNELS : Masqués par défaut, affichés selon le sujet -->
+                
+                <!-- CHAMP CONDITIONNEL 1 : Domaine d'intérêt (si "Demande d'information") -->
+                <div class="form-group conditional" id="champ-domaine" style="display: none;">
+                    <label for="domaine">Domaine d'intérêt</label>
+                    <input type="text" id="domaine" name="domaine" placeholder="Ex: Gâteaux de mariage, Pâtisseries...">
+                </div>
+
+                <!-- CHAMP CONDITIONNEL 2 : Numéro de ticket (si "Support technique") -->
+                <div class="form-group conditional" id="champ-ticket" style="display: none;">
+                    <label for="ticket">Numéro de ticket</label>
+                    <input type="text" id="ticket" name="ticket" placeholder="Ex: TK-12345">
+                </div>
+
+                <!-- CHAMP CONDITIONNEL 3 : Urgence (si "Support technique") -->
+                <div class="form-group conditional" id="champ-urgence" style="display: none;">
+                    <label for="urgence">Niveau d'urgence</label>
+                    <select id="urgence" name="urgence">
+                        <option value="">-- Sélectionnez --</option>
+                        <option value="faible">Faible</option>
+                        <option value="moyen">Moyen</option>
+                        <option value="eleve">Élevé</option>
+                        <option value="critique">Critique</option>
+                    </select>
+                </div>
+
+                <!-- CHAMP CONDITIONNEL 4 : Date incident (si "Réclamation") -->
+                <div class="form-group conditional" id="champ-incident" style="display: none;">
+                    <label for="incident">Date de l'incident</label>
+                    <!-- Type date pour sélecteur de date natif du navigateur -->
+                    <input type="date" id="incident" name="incident">
+                </div>
+
+                <!-- CHAMP 5 : MESSAGE (TEXTAREA - OBLIGATOIRE) -->
+                <div class="form-group">
+                    <label for="message">Message <span class="required">*</span></label>
+                    <!-- Textarea avec 5 lignes par défaut -->
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <span class="error-message" id="error-message"></span>
+                </div>
+
+                <!-- CHAMP 6 : TYPE DE DEMANDE (RADIO BUTTONS - OBLIGATOIRE) -->
+                <div class="form-group">
+                    <label>Type de demande <span class="required">*</span></label>
+                    <!-- Container pour les boutons radio -->
+                    <div class="radio-group">
+                        <!-- Radio 1 : Particulier -->
+                        <label class="radio-label">
+                            <!-- Même attribut name pour grouper les radios -->
+                            <input type="radio" name="type-demande" value="particulier" required>
+                            Particulier
+                        </label>
+                        <!-- Radio 2 : Entreprise -->
+                        <label class="radio-label">
+                            <input type="radio" name="type-demande" value="entreprise" required>
+                            Entreprise
+                        </label>
+                    </div>
+                    <span class="error-message" id="error-type"></span>
+                </div>
+
+                <!-- BOUTON DE SOUMISSION -->
+                <div class="form-group">
+                    <!-- Type submit pour déclencher l'événement submit du formulaire -->
+                    <button type="submit" class="btn-submit">Envoyer le message</button>
+                </div>
+
+                <!-- MESSAGE DE SUCCÈS : Masqué par défaut, affiché après validation -->
+                <div id="success-message" class="success-message" style="display: none;"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Josée's Cake</h4>
+                    <p>Votre pâtisserie artisanale depuis 2015</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: contact@joseescake.sn</p>
+                    <p>Téléphone: +221 77 123 45 67</p>
+                    <p>Adresse: Dakar Plateau, Sénégal</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <p>Lundi - Samedi: 8h - 19h</p>
+                    <p>Dimanche: 9h - 14h</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Josée's Cake. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIEN VERS LE FICHIER JAVASCRIPT : Placé à la fin pour que le DOM soit chargé -->
+    <script src="js/script.js"></script>
+</body>
+</html>

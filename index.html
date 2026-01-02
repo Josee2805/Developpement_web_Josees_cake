@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Définition de l'encodage des caractères en UTF-8 pour supporter les accents -->
+    <meta charset="UTF-8">
+    <!-- Configuration pour un affichage responsive sur mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titre qui s'affiche dans l'onglet du navigateur -->
+    <title>Accueil - Josée's Cake</title>
+    <!-- Lien vers le fichier CSS externe pour la mise en forme -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- EN-TÊTE : Contient le logo et le menu de navigation -->
+    <header>
+        <div class="container">
+            <!-- Logo de l'entreprise -->
+            <div class="logo">
+                <img class="logo_img" src="img/logo.jpeg" alt="logo_josee">
+                <h1>Josée's Cake</h1>
+                <p class="tagline">L'art de la pâtisserie</p>
+            </div>
+            
+            <!-- Menu de navigation principal -->
+            <nav>
+                <ul class="menu">
+                    <!-- Lien vers la page d'accueil  -->
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <!-- Lien vers la page de présentation -->
+                    <li><a href="presentation.html">Présentation</a></li>
+                    <!-- Lien vers la page de contact -->
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECTION HERO : Bannière principale d'accueil avec message de bienvenue -->
+    <section class="hero">
+        <div class="container">
+            <!-- Titre principal de la page -->
+            <h2>Bienvenue chez Josée's Cake</h2>
+            <!-- Description de l'entreprise -->
+            <p>Des gâteaux artisanaux faits avec passion et des ingrédients de qualité</p>
+            <!-- Bouton d'appel à l'action qui redirige vers la page contact -->
+            <a href="contact.html" class="btn-primary">Commander maintenant</a>
+        </div>
+    </section>
+
+    <!-- SECTION PRODUITS : Présentation des spécialités de la pâtisserie -->
+    <!-- SECTION PRODUITS : Nos spécialités -->
+<section class="products">
+    <div class="container">
+
+        <!-- Titre de la section -->
+        <h2>Nos Spécialités</h2>
+
+        <!-- 
+            DIV .slider :
+            - Sert de "fenêtre"
+            - Cache tout ce qui dépasse horizontalement
+        -->
+        <div class="slider">
+
+            <!-- 
+                DIV .slider-track :
+                - Contient toutes les cartes
+                - Se déplace horizontalement grâce à l'animation CSS
+            -->
+            <div class="slider-track">
+
+                <!-- =========================
+                     CARTES ORIGINALES
+                ========================== -->
+
+                <!-- Carte 1 -->
+                <div class="card">
+                    <!-- Image du produit -->
+                    <img src="img/gateau-anniversaire.jpg" alt="Gâteau d'anniversaire">
+                    <!-- Titre -->
+                    <h3>Gâteaux d'Anniversaire</h3>
+                    <!-- Description -->
+                    <p>Des créations personnalisées pour célébrer vos moments spéciaux.</p>
+                </div>
+
+                <!-- Carte 2 -->
+                <div class="card">
+                    <img src="img/patisserie.jpeg" alt="Pâtisseries">
+                    <h3>Pâtisseries Fines</h3>
+                    <p>Éclairs, tartes, macarons et bien plus encore.</p>
+                </div>
+
+                <!-- Carte 3 -->
+                <div class="card">
+                    <img src="img/mariage.jpg" alt="Gâteau de mariage">
+                    <h3>Gâteaux de Mariage</h3>
+                    <p>Des pièces montées élégantes pour votre mariage.</p>
+                </div>
+
+                <!-- =========================
+                     DUPLICATION DES CARTES
+                     (clé du défilement infini)
+                ========================== -->
+
+                <!-- 
+                    Les cartes ci-dessous sont des COPIES exactes.
+                    Quand la première série sort de l'écran,
+                    la deuxième prend le relais sans coupure visible.
+                -->
+
+                <div class="card">
+                    <img src="img/gateau-anniversaire.jpg" alt="Gâteau d'anniversaire">
+                    <h3>Gâteaux d'Anniversaire</h3>
+                    <p>Des créations personnalisées pour célébrer vos moments spéciaux.</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/patisserie.jpeg" alt="Pâtisseries">
+                    <h3>Pâtisseries Fines</h3>
+                    <p>Éclairs, tartes, macarons et bien plus encore.</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/mariage.jpg" alt="Gâteau de mariage">
+                    <h3>Gâteaux de Mariage</h3>
+                    <p>Des pièces montées élégantes pour votre mariage.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- SECTION POURQUOI NOUS : Arguments pour convaincre les clients -->
+    <section class="why-us">
+        <div class="container">
+            <!-- Titre de la section -->
+            <h2>Pourquoi Choisir Josée's Cake</h2>
+            
+            <!-- Grille d'arguments -->
+            <div class="grid">
+                <!-- Argument 1 : Qualité des ingrédients -->
+                <div class="feature">
+                    <img src="img/ingredients.jpg" alt="Ingrédients frais">
+                    <h3>Ingrédients Frais</h3>
+                    <p>Nous utilisons uniquement des ingrédients naturels et de première qualité pour garantir le meilleur goût.</p>
+                </div>
+                
+                <!-- Argument 2 : Fabrication artisanale -->
+                <div class="feature">
+                    <img src="img/artisanal.jpg" alt="Fait main">
+                    <h3>Fait Main</h3>
+                    <p>Chaque gâteau est préparé avec soin et attention par notre équipe de pâtissiers expérimentés.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIED DE PAGE : Informations de contact et copyright -->
+    <footer>
+        <div class="container">
+            <!-- Contenu du footer divisé en 3 colonnes -->
+            <div class="footer-content">
+                <!-- Colonne 1 : À propos -->
+                <div class="footer-section">
+                    <h4>Josée's Cake</h4>
+                    <p>Votre pâtisserie artisanale depuis 2015</p>
+                </div>
+                
+                <!-- Colonne 2 : Informations de contact -->
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: contact@joseescake.sn</p>
+                    <p>Téléphone: +221 77 123 45 67</p>
+                    <p>Adresse: Dakar Plateau, Sénégal</p>
+                </div>
+                
+                <!-- Colonne 3 : Horaires d'ouverture -->
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <p>Lundi - Samedi: 8h - 19h</p>
+                    <p>Dimanche: 9h - 14h</p>
+                </div>
+            </div>
+            
+            <!-- Ligne de copyright en bas du footer -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Josée's Cake. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
